@@ -18,15 +18,15 @@ export const lessonsData: Lesson[] = [
 ];
 
 export const sidebarItems = [
-  { id: "dashboard", label: "Dashboard", icon: "LayoutDashboard" },
-  { id: "users", label: "Users", icon: "Users" },
-  { id: "faculty", label: "Faculty", icon: "GraduationCap" },
-  { id: "majors", label: "Majors", icon: "BookOpen" },
-  { id: "skills", label: "Skills", icon: "Lightbulb" },
-  { id: "careers", label: "Careers", icon: "Briefcase" },
-  { id: "courses", label: "Courses", icon: "FolderOpen" },
-  { id: "lessons", label: "Lessons", icon: "FileText" },
-  { id: "news", label: "News", icon: "Newspaper" },
+  { id: "dashboard", label: "Dashboard", icon: "LayoutDashboard", path: "/" },
+  { id: "users", label: "Users", icon: "Users", path: "/users" },
+  { id: "faculty", label: "Faculty", icon: "GraduationCap", path: "/faculty" },
+  { id: "majors", label: "Majors", icon: "BookOpen", path: "/majors" },
+  { id: "skills", label: "Skills", icon: "Lightbulb", path: "/skills" },
+  { id: "careers", label: "Careers", icon: "Briefcase", path: "/careers" },
+  { id: "courses", label: "Courses", icon: "FolderOpen", path: "/courses" },
+  { id: "lessons", label: "Lessons", icon: "FileText", path: "/lessons" },
+  { id: "news", label: "News", icon: "Newspaper", path: "/news" },
 ] as const;
 
 export type SidebarItemId = typeof sidebarItems[number]["id"];
