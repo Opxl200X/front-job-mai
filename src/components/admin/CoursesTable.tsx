@@ -65,21 +65,21 @@ export function CoursesTable() {
       <div className="overflow-hidden rounded-lg border border-border">
         <Table>
           <TableHeader>
-            <TableRow className="bg-table-header hover:bg-table-header">
-              <TableHead className="text-table-header-foreground font-semibold">Image</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold">Title</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold">Career</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold">Level</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Hours</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Edit</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Delete</TableHead>
+            <TableRow className="bg-muted/50 hover:bg-muted/50">
+              <TableHead className="font-semibold">Image</TableHead>
+              <TableHead className="font-semibold">Title</TableHead>
+              <TableHead className="font-semibold">Career</TableHead>
+              <TableHead className="font-semibold">Level</TableHead>
+              <TableHead className="font-semibold text-center">Hours</TableHead>
+              <TableHead className="font-semibold text-center">Edit</TableHead>
+              <TableHead className="font-semibold text-center">Delete</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredCourses.map((course) => (
               <TableRow 
                 key={course.id} 
-                className="transition-colors hover:bg-table-row-hover"
+                className="transition-colors hover:bg-muted/30"
               >
                 <TableCell>
                   <div className="h-12 w-20 overflow-hidden rounded-md bg-muted">
