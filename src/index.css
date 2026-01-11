@@ -52,7 +52,7 @@ All colors MUST be HSL.
     --sidebar-ring: 227 71% 55%;
 
     /* Table */
-    --table-header: 227 71% 55%;
+    --table-header: 234 94% 63%;
     --table-header-foreground: 0 0% 100%;
     --table-row-hover: 220 14% 98%;
   }
@@ -95,7 +95,7 @@ All colors MUST be HSL.
     --sidebar-border: 220 20% 20%;
     --sidebar-ring: 227 71% 55%;
 
-    --table-header: 227 71% 55%;
+    --table-header: 234 94% 63%;
     --table-header-foreground: 0 0% 100%;
     --table-row-hover: 220 20% 15%;
   }
