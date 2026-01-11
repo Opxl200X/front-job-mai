@@ -93,7 +93,7 @@ export function CoursesTable() {
                 <TableCell className="font-medium">{course.title}</TableCell>
                 <TableCell className="text-muted-foreground">{course.career}</TableCell>
                 <TableCell>
-                  <Badge variant={getLevelVariant(course.level)} className="text-black">
+                  <Badge variant={getLevelVariant(course.level)} className="text-white">
                     {course.level}
                   </Badge>
                 </TableCell>
