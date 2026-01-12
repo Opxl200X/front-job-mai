@@ -111,7 +111,7 @@ export function CoursesTable() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                    className="h-8 w-8 text-muted-foreground hover:text-destructive hover:bg-transparent"
                     onClick={() => handleDelete(course.id)}
                   >
                     <Trash2 className="h-4 w-4" />
