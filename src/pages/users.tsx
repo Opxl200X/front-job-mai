@@ -1,10 +1,12 @@
 import { AdminLayout } from "@/components/admin/AdminLayout";
-import UserManagement from "@/components/UserManagement";
+import { UsersTable } from "@/components/admin/UsersTable";
 
-export default function UsersPage() {
+const Users = () => {
   return (
     <AdminLayout>
-      <UserManagement />
+      <UsersTable />
     </AdminLayout>
   );
-}
+};
+
+export default Users;
