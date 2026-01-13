@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -13,12 +18,19 @@ export default {
       },
     },
     extend: {
+      /* ---------------- Fonts ---------------- */
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
+
+      /* ---------------- Colors ---------------- */
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -47,6 +59,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        /* Sidebar */
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,33 +71,49 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+
+        /* Table */
         table: {
           header: "hsl(var(--table-header))",
           "header-foreground": "hsl(var(--table-header-foreground))",
           "row-hover": "hsl(var(--table-row-hover))",
         },
+
+        /* Stat cards */
+        "stat-blue": "hsl(var(--stat-blue))",
+        "stat-pink": "hsl(var(--stat-pink))",
+        "stat-purple": "hsl(var(--stat-purple))",
+        "stat-green": "hsl(var(--stat-green))",
+        "stat-coral": "hsl(var(--stat-coral))",
+        "stat-cyan": "hsl(var(--stat-cyan))",
+        "stat-teal": "hsl(var(--stat-teal))",
+        "stat-mint": "hsl(var(--stat-mint))",
       },
+
+      /* ---------------- Radius ---------------- */
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "2xl": "1rem",
       },
+
+      /* ---------------- Shadow ---------------- */
+      boxShadow: {
+        card: "0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04)",
+        "card-hover":
+          "0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.06)",
+      },
+
+      /* ---------------- Animation ---------------- */
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
