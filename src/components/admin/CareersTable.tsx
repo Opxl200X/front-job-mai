@@ -12,10 +12,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { careersData, Career } from "@/data/careersData";
+import { AddCareerSheet, CareerFormData } from "./AddCareerSheet";
 
 export function CareersTable() {
   const [searchQuery, setSearchQuery] = useState("");
   const [careers, setCareers] = useState<Career[]>(careersData);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const filteredCareers = careers.filter(
     (career) =>
@@ -25,6 +27,18 @@ export function CareersTable() {
 
   const handleDelete = (id: number) => {
     setCareers(careers.filter((career) => career.id !== id));
+  };
+
+  const handleAddCareer = (data: CareerFormData) => {
+    const newCareer: Career = {
+      id: Math.max(...careers.map((c) => c.id)) + 1,
+      title: data.title,
+      industry: data.industry,
+      minSalary: data.minSalary,
+      growth: data.growth.toLowerCase() as "high" | "medium" | "low",
+      image: data.image || "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400",
+    };
+    setCareers([...careers, newCareer]);
   };
 
   return (
@@ -42,12 +56,18 @@ export function CareersTable() {
               className="w-[200px] pl-9"
             />
           </div>
-          <Button className="gap-2">
+          <Button className="gap-2" onClick={() => setIsSheetOpen(true)}>
             <Plus className="h-4 w-4" />
             Add New
           </Button>
         </div>
       </div>
+
+      <AddCareerSheet
+        open={isSheetOpen}
+        onOpenChange={setIsSheetOpen}
+        onSubmit={handleAddCareer}
+      />
 
       <div className="overflow-hidden rounded-lg border border-border">
         <Table>
