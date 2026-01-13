@@ -3,7 +3,7 @@ export interface Career {
   title: string;
   industry: string;
   minSalary: number;
-  growth: "high" | "medium" | "low";
+  growth: "High" | "Medium" | "Stable";
   image: string;
 }
 
@@ -13,7 +13,7 @@ export const careersData: Career[] = [
     title: "UX Designer",
     industry: "Technology",
     minSalary: 45000,
-    growth: "high",
+    growth: "High",
     image: "/placeholder.svg",
   },
   {
@@ -21,7 +21,7 @@ export const careersData: Career[] = [
     title: "Data Scientist",
     industry: "Technology",
     minSalary: 60000,
-    growth: "high",
+    growth: "High",
     image: "/placeholder.svg",
   },
   {
@@ -29,7 +29,7 @@ export const careersData: Career[] = [
     title: "Product Manager",
     industry: "Technology",
     minSalary: 70000,
-    growth: "high",
+    growth: "Medium",
     image: "/placeholder.svg",
   },
   {
@@ -37,7 +37,7 @@ export const careersData: Career[] = [
     title: "Software Engineer",
     industry: "Technology",
     minSalary: 50000,
-    growth: "high",
+    growth: "High",
     image: "/placeholder.svg",
   },
   {
@@ -45,7 +45,7 @@ export const careersData: Career[] = [
     title: "Digital Marketing Specialist",
     industry: "Technology",
     minSalary: 35000,
-    growth: "high",
+    growth: "Stable",
     image: "/placeholder.svg",
   },
 ];
