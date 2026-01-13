@@ -89,10 +89,10 @@ export function NewsTable() {
                   </Button>
                 </TableCell>
                 <TableCell className="text-center">
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="h-8 w-8 text-muted-foreground hover:text-destructive hover:bg-transparent"
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-destructive hover:bg-transparent hover:text-destructive"
                     onClick={() => handleDelete(item.id)}
                   >
                     <Trash2 className="h-4 w-4" />

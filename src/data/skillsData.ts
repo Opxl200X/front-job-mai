@@ -3,6 +3,7 @@ export interface Skill {
   name: string;
   category: "technical" | "analytical" | "soft" | "creative";
 }
+
 export const skillsData: Skill[] = [
   { id: 1, name: "Python Programming", category: "technical" },
   { id: 2, name: "JavaScript", category: "technical" },

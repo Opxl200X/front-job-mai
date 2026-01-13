@@ -2,40 +2,41 @@ import { useState } from "react";
 import { Search, Plus, Pencil, Trash2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "@/components/ui/table";
-import { lessonsData, Lesson } from "@/data/lessonsData";
+import { skillsData, Skill } from "@/data/skillsData";
 
-export function LessonsTable() {
+export function SkillsTable() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [lessons, setLessons] = useState<Lesson[]>(lessonsData);
+  const [skills, setSkills] = useState<Skill[]>(skillsData);
 
-  const filteredLessons = lessons.filter(
-    (lesson) =>
-      lesson.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      lesson.course.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredSkills = skills.filter(
+    (skill) =>
+      skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      skill.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleDelete = (id: number) => {
-    setLessons(lessons.filter((lesson) => lesson.id !== id));
+    setSkills(skills.filter((skill) => skill.id !== id));
   };
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-3xl font-bold text-foreground">Lessons</h1>
-        
+        <h1 className="text-3xl font-bold text-foreground">Skills</h1>
+
         <div className="flex items-center gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Search..."
+              placeholder="Search skills..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-[200px] pl-9"
@@ -48,33 +49,45 @@ export function LessonsTable() {
         </div>
       </div>
 
+      {/* Table */}
       <div className="overflow-hidden rounded-lg border border-border">
         <Table>
           <TableHeader>
             <TableRow className="bg-table-header hover:bg-table-header">
-              <TableHead className="text-table-header-foreground font-semibold">Title</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold">Course</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Order</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Duration (min)</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Edit</TableHead>
-              <TableHead className="text-table-header-foreground font-semibold text-center">Delete</TableHead>
+              <TableHead className="text-table-header-foreground font-semibold">
+                Skill Name
+              </TableHead>
+              <TableHead className="text-table-header-foreground font-semibold text-center">
+                Category
+              </TableHead>
+              <TableHead className="text-table-header-foreground font-semibold text-center">
+                Edit
+              </TableHead>
+              <TableHead className="text-table-header-foreground font-semibold text-center">
+                Delete
+              </TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
-            {filteredLessons.map((lesson) => (
-              <TableRow 
-                key={lesson.id} 
+            {filteredSkills.map((skill) => (
+              <TableRow
+                key={skill.id}
                 className="transition-colors hover:bg-table-row-hover"
               >
-                <TableCell className="font-medium">{lesson.title}</TableCell>
-                <TableCell className="text-muted-foreground">{lesson.course}</TableCell>
-                <TableCell className="text-center">{lesson.order}</TableCell>
-                <TableCell className="text-center">{lesson.duration}</TableCell>
+                <TableCell className="font-medium">
+                  {skill.name}
+                </TableCell>
+
+                <TableCell className="text-center capitalize">
+                  {skill.category}
+                </TableCell>
+
                 <TableCell className="text-center">
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-transparent"
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
@@ -84,7 +97,7 @@ export function LessonsTable() {
                     variant="ghost"
                     size="icon"
                     className="text-destructive hover:bg-transparent hover:text-destructive"
-                    onClick={() => handleDelete(lesson.id)}
+                    onClick={() => handleDelete(skill.id)}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
