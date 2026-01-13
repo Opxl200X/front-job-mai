@@ -13,11 +13,14 @@ import {
 } from "@/components/ui/table";
 import { careersData, Career } from "@/data/careersData";
 import { AddCareerSheet, CareerFormData } from "./AddCareerSheet";
+import { EditCareerSheet } from "./EditCareerSheet";
 
 export function CareersTable() {
   const [searchQuery, setSearchQuery] = useState("");
   const [careers, setCareers] = useState<Career[]>(careersData);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isAddSheetOpen, setIsAddSheetOpen] = useState(false);
+  const [isEditSheetOpen, setIsEditSheetOpen] = useState(false);
+  const [selectedCareer, setSelectedCareer] = useState<Career | null>(null);
 
   const filteredCareers = careers.filter(
     (career) =>
@@ -35,10 +38,19 @@ export function CareersTable() {
       title: data.title,
       industry: data.industry,
       minSalary: data.minSalary,
-      growth: data.growth.toLowerCase() as "high" | "medium" | "low",
+      growth: data.growth as "High" | "Medium" | "Stable",
       image: data.image || "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400",
     };
     setCareers([...careers, newCareer]);
+  };
+
+  const handleEditCareer = (updatedCareer: Career) => {
+    setCareers(careers.map((c) => (c.id === updatedCareer.id ? updatedCareer : c)));
+  };
+
+  const handleEditClick = (career: Career) => {
+    setSelectedCareer(career);
+    setIsEditSheetOpen(true);
   };
 
   return (
@@ -56,7 +68,7 @@ export function CareersTable() {
               className="w-[200px] pl-9"
             />
           </div>
-          <Button className="gap-2" onClick={() => setIsSheetOpen(true)}>
+          <Button className="gap-2" onClick={() => setIsAddSheetOpen(true)}>
             <Plus className="h-4 w-4" />
             Add New
           </Button>
@@ -64,9 +76,16 @@ export function CareersTable() {
       </div>
 
       <AddCareerSheet
-        open={isSheetOpen}
-        onOpenChange={setIsSheetOpen}
+        open={isAddSheetOpen}
+        onOpenChange={setIsAddSheetOpen}
         onSubmit={handleAddCareer}
+      />
+
+      <EditCareerSheet
+        open={isEditSheetOpen}
+        onOpenChange={setIsEditSheetOpen}
+        onSubmit={handleEditCareer}
+        career={selectedCareer}
       />
 
       <div className="overflow-hidden rounded-lg border border-border">
@@ -116,6 +135,7 @@ export function CareersTable() {
                     variant="ghost" 
                     size="icon" 
                     className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-transparent"
+                    onClick={() => handleEditClick(career)}
                   >
                     <Pencil className="h-4 w-4" />
                   </Button>
