@@ -1,18 +1,69 @@
 export interface Skill {
   id: number;
   name: string;
-  category: "technical" | "analytical" | "soft" | "creative";
+  faculty: string;
+  major: string;
 }
 
 export const skillsData: Skill[] = [
-  { id: 1, name: "Python Programming", category: "technical" },
-  { id: 2, name: "JavaScript", category: "technical" },
-  { id: 3, name: "Data Analysis", category: "analytical" },
-  { id: 4, name: "Communication", category: "soft" },
-  { id: 5, name: "Leadership", category: "soft" },
-  { id: 6, name: "Problem Solving", category: "analytical" },
-  { id: 7, name: "Project Management", category: "soft" },
-  { id: 8, name: "Machine Learning", category: "technical" },
-  { id: 9, name: "UX/UI Design", category: "creative" },
-  { id: 10, name: "Digital Marketing", category: "creative" },
+  { 
+    id: 1, 
+    name: "Python Programming", 
+    faculty: "Engineering", 
+    major: "Computer Science" 
+  },
+  { 
+    id: 2, 
+    name: "JavaScript", 
+    faculty: "Engineering", 
+    major: "Computer Science" 
+  },
+  { 
+    id: 3, 
+    name: "Data Analysis", 
+    faculty: "Science", 
+    major: "Statistics" 
+  },
+  { 
+    id: 4, 
+    name: "Communication", 
+    faculty: "Arts", 
+    major: "Communication Arts" 
+  },
+  { 
+    id: 5, 
+    name: "Leadership", 
+    faculty: "Business", 
+    major: "Management" 
+  },
+  { 
+    id: 6, 
+    name: "Problem Solving", 
+    faculty: "Engineering", 
+    major: "General Engineering" 
+  },
+  { 
+    id: 7, 
+    name: "Project Management", 
+    faculty: "Business", 
+    major: "Business Administration" 
+  },
+  { 
+    id: 8, 
+    name: "Machine Learning", 
+    faculty: "Engineering", 
+    major: "Computer Science" 
+  },
+  { 
+    id: 9, 
+    name: "UX/UI Design", 
+    faculty: "Arts", 
+    major: "Digital Media" 
+  },
+  { 
+    id: 10, 
+    name: "Digital Marketing", 
+    faculty: "Business", 
+    major: "Marketing" 
+  },
 ];

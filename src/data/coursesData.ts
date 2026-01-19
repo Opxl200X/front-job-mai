@@ -1,3 +1,4 @@
+// src/data/coursesData.ts
 export interface Course {
   id: number;
   image: string;
@@ -5,6 +6,10 @@ export interface Course {
   career: string;
   level: "beginner" | "intermediate" | "advanced";
   hours: number;
+  description?: string;
+  externalUrl?: string;
+  order?: number;
+  skillsTaught?: string;
 }
 
 export const coursesData: Course[] = [

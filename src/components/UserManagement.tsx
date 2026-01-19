@@ -3,7 +3,7 @@ import { Search, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { usersData, User } from "@/data/users";
+import { usersData, User } from "@/data/usersData";
 
 const UserManagement = () => {
   const [users, setUsers] = useState<User[]>(usersData);
